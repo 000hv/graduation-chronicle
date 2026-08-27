@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Graduation Chronicle</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0B132B;
+    --accent-gold: #C5A059;
+    --gold-bright: #E5C158;
+    --paper-bg: #FCFBF9;
+    --card-border: #E8E2D5;
+    --text-main: #334155;
+    --text-dark: #0F172A;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #1E293B;
+    color: var(--text-main);
+    margin: 0;
+    padding: 30px 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .infographic-container {
+    width: 100%;
+    max-width: 850px;
+    background: var(--paper-bg);
+    border: 3px solid var(--accent-gold);
+    outline: 6px solid var(--primary);
+    border-radius: 12px;
+    padding: 40px 35px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .corner-decor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-gold);
+  }
+  .top-left { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+  .top-right { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+  .bottom-left { bottom: 8px; left: 8px; border-right: none; border-top: none; }
+  .bottom-right { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+  .badge {
+    position: absolute;
+    top: -18px;
+    right: 40px;
+    background: linear-gradient(135deg, var(--accent-gold), #8C6D2D);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border: 2px solid #FFF;
+  }
+
+  .header {
+    text-align: center;
+    border-bottom: 2px double var(--accent-gold);
+    padding-bottom: 22px;
+    margin-bottom: 30px;
+  }
+
+  .header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.7rem;
+    font-weight: 900;
+    color: var(--primary);
+    margin: 0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 1.15;
+  }
+
+  .divider-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0;
+    color: var(--accent-gold);
+    font-size: 0.8rem;
+  }
+  .divider-line::before, .divider-line::after {
+    content: "";
+    height: 1px;
+    width: 80px;
+    background: var(--accent-gold);
+    margin: 0 15px;
+  }
+
+  .ribbon {
+    background: var(--primary);
+    color: var(--gold-bright);
+    display: inline-block;
+    padding: 5px 22px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  .motto {
+    font-family: 'Cinzel', serif;
+    font-style: italic;
+    color: #475569;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 35px;
+  }
+
+  @media (max-width: 768px) {
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .card {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 22px 18px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid var(--accent-gold);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+  }
+
+  .article-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .card h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+    margin: 0 0 14px 0;
+    line-height: 1.35;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px dashed var(--card-border);
+    padding-bottom: 12px;
+  }
+
+  .card ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    font-size: 0.83rem;
+    line-height: 1.5;
+  }
+
+  .card li {
+    margin-bottom: 14px;
+    position: relative;
+    padding-left: 16px;
+  }
+
+  .card li::before {
+    content: "◈";
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
+    font-size: 0.75rem;
+    top: 1px;
+  }
+
+  .card li strong {
+    color: var(--text-dark);
+    display: block;
+    margin-bottom: 2px;
+    font-weight: 600;
+  }
+
+  .footer {
+    background: linear-gradient(135deg, #0B132B, #1C2541);
+    color: white;
+    padding: 24px 28px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid var(--accent-gold);
+    box-shadow: 0 10px 25px rgba(11, 19, 43, 0.25);
+  }
+
+  .group-members {
+    flex: 1;
+  }
+
+  .group-members h3 {
+    margin: 0 0 12px 0;
+    color: var(--gold-bright);
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px 15px;
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.82rem;
+    color: #E2E8F0;
+  }
+
+  .members-grid li::marker {
+    color: var(--accent-gold);
+    font-weight: bold;
+  }
+
+  .qr-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--accent-gold);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .qr-section:hover {
+    transform: translateY(-6px) scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 20px rgba(229, 193, 88, 0.3);
+    border-color: var(--gold-bright);
+  }
+
+  .qr-section img {
+    width: 75px;
+    height: 75px;
+    background: white;
+    padding: 5px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+  }
+
+  .qr-text {
+    font-size: 0.68rem;
+    font-family: 'Cinzel', serif;
+    color: var(--gold-bright);
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="infographic-container">
+  <div class="corner-decor top-left"></div>
+  <div class="corner-decor top-right"></div>
+  <div class="corner-decor bottom-left"></div>
+  <div class="corner-decor bottom-right"></div>
+
+  <div class="badge">SECTION 11-3</div>
+
+  <div class="header">
+    <h1>THE GRADUATION CHRONICLE</h1>
+    <div class="divider-line">✦ ✦ ✦</div>
+    <div class="ribbon">CLASS OF 2026 • SENIOR EDITION</div>
+    <div class="motto">“Our Voices, Our Future, Our Legacy.”</div>
+  </div>
+
+  <div class="articles-grid">
+    
+    <!-- Columna 1 -->
+    <div class="card">
+      <div class="article-label">ARTICLE 1</div>
+      <h2>Saber Test Stories</h2>
+      <ul>
+        <li><strong></strong></li>
+        <li><strong>Practical Tips:</strong> Offers actionable advice for exam day, including reviewing key concepts, getting enough sleep, managing time wisely, reading carefully, and staying calm.</li>
+        <li><strong>Managing Pressure & Expectations:</strong> Reminds students that standardized test scores do not define their personal worth, encouraging them to manage anxiety, pace themselves, and stay confident.</li>
+      </ul>
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="card">
+      <div class="article-label">ARTICLE 2</div>
+      <h2>Our Future</h2>
+      <ul>
+        <li><strong></strong></li>
+                <li><strong>Fear vs. Excitement:</strong> Captures the mixed emotions of graduation—leaving familiar memories behind while stepping confidently toward college, careers, and personal dreams.</li>
+        <li><strong>Transition and Independence:</strong> Explores the shift from school to adult life, focusing on gaining independence, making decisions, and embracing new opportunities.</li>
+      </ul>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="card">
+      <div class="article-label">ARTICLE 3</div>
+      <h2>OBITUARIES</h2>
+      <ul>
+        <li><strong>From Big Backpacks to Dreams in Motion:</strong> A reflective journey from childhood memories with heavy backpacks to graduation day, celebrating personal growth, friendships, and future dreams.</li>
+        <li><strong>Humor/Jokes:</strong> A humorous tribute to sleep lost since 9th grade, late-night group chats, instant coffee, and broken sleep promises.</li>
+        <li><strong>Tribute to Our Teachers:</strong> A heartfelt tribute honoring our teachers for their guidance, patience, and lasting life lessons beyond academics.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="group-members">
+      <h3>EDITORIAL TEAM</h3>
+      <ol class="members-grid">
+        <li>Stefania Alomia.</li>
+        <li>Karol Barragan.</li>
+        <li>Alyson Herrera.</li>
+        <li>Juan José Carvajal.</li>
+        <li>Geovanny Tejada.</li>
+        <li>Sara Ruíz.</li>
+        <li>Ana Sofia Millán.</li>
+        <li>Sebastián Aguirre.</li>
+        <li>Laura Sofia Márquez.</li>
+      </ol>
+    </div>
+    
+    <!-- SECCIÓN QR CLICKEABLE -->
+    <a href="https://canva.link/periodico-alyson-herrera" target="_blank" style="text-decoration: none;">
+      <div class="qr-section">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tu-enlace-aqui.com" alt="QR Code">
+        <span class="qr-text">SCAN OR CLICK FOR FULL STORY</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
