@@ -130,6 +130,12 @@
     margin-bottom: 35px;
   }
 
+  @media (max-width: 768px) {
+    .articles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .card {
     background: #FFFFFF;
     border-radius: 10px;
@@ -247,12 +253,6 @@
     font-weight: bold;
   }
 
-  .qr-wrapper {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-  }
-
   .qr-section {
     display: flex;
     flex-direction: column;
@@ -264,11 +264,10 @@
     border: 1px solid var(--accent-gold);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-sizing: border-box;
   }
 
   .qr-section:hover {
-    transform: translateY(-4px) scale(1.03);
+    transform: translateY(-6px) scale(1.05);
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 10px 20px rgba(229, 193, 88, 0.3);
     border-color: var(--gold-bright);
@@ -289,36 +288,6 @@
     color: var(--gold-bright);
     letter-spacing: 1px;
     font-weight: 600;
-  }
-
-  /* ESTILOS EXCLUSIVOS PARA PANTALLAS MÓVILES */
-  @media (max-width: 768px) {
-    .articles-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .footer {
-      flex-direction: column;
-      text-align: center;
-      padding: 20px 15px;
-    }
-
-    .members-grid {
-      grid-template-columns: repeat(2, 1fr);
-      padding-left: 0;
-      list-style-position: inside;
-      text-align: left;
-    }
-
-    .qr-wrapper {
-      width: 100%;
-    }
-
-    .qr-section {
-      margin-top: 15px;
-      width: 100%;
-      max-width: 220px;
-    }
   }
 </style>
 </head>
@@ -358,9 +327,8 @@
       <h2>Our Future</h2>
       <ul>
         <li><strong></strong></li>
-        <li><strong>Fear vs. Excitement:</strong> Captures the mixed emotions of graduation—leaving familiar memories behind while stepping confidently toward college, careers, and personal dreams.</li>
+                <li><strong>Fear vs. Excitement:</strong> Captures the mixed emotions of graduation—leaving familiar memories behind while stepping confidently toward college, careers, and personal dreams.</li>
         <li><strong>Transition and Independence:</strong> Explores the shift from school to adult life, focusing on gaining independence, making decisions, and embracing new opportunities.</li>
-      
       </ul>
     </div>
 
@@ -393,9 +361,10 @@
       </ol>
     </div>
     
-    <a href="https://canva.link/periodico-alyson-herrera" target="_blank" class="qr-wrapper">
+    <!-- SECCIÓN QR CLICKEABLE -->
+    <a href="https://canva.link/periodico-alyson-herrera" target="_blank" style="text-decoration: none;">
       <div class="qr-section">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://000hv.github.io/graduation-chronicle/" alt="QR Code">
+        <img src="PERIODICO.png" alt="Codigo QR" style="width: 150px;height: 150px;display: block; margin: 0 auto;">
         <span class="qr-text">SCAN OR CLICK FOR FULL STORY</span>
       </div>
     </a>
