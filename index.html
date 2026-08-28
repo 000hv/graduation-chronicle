@@ -74,15 +74,30 @@
   }
 
   .header h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 2.7rem;
-    font-weight: 900;
-    color: var(--primary);
-    margin: 0;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    line-height: 1.15;
-  }
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.4rem, 5vw, 2.7rem);
+  font-weight: 900;
+  color: var(--primary);
+  margin: 0;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 1.15;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.qr-section {
+  width: 100%;
+  max-width: 180px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.qr-section img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
   .divider-line {
     display: flex;
@@ -315,7 +330,7 @@
       <div class="article-label">ARTICLE 1</div>
       <h2>Saber Test Stories</h2>
       <ul>
-        <li><strong></strong></li>
+        <li><strong>Preparing for the ICFES: Study, Practice and Teamwork</strong>Preparing for the ICFES requires practice and focus. Working in groups helps students explain tough topics, reduce stress, and protect their mental health for better results.</li>
         <li><strong>Practical Tips:</strong> Offers actionable advice for exam day, including reviewing key concepts, getting enough sleep, managing time wisely, reading carefully, and staying calm.</li>
         <li><strong>Managing Pressure & Expectations:</strong> Reminds students that standardized test scores do not define their personal worth, encouraging them to manage anxiety, pace themselves, and stay confident.</li>
       </ul>
@@ -364,7 +379,7 @@
     <!-- SECCIÓN QR CLICKEABLE -->
     <a href="https://canva.link/periodico-alyson-herrera" target="_blank" style="text-decoration: none;">
       <div class="qr-section">
-        <img src="PERIODICO.png" alt="Codigo QR" style="width: 150px;height: 150px;display: block; margin: 0 auto;">
+        <img src="PERIODICO.png" alt="Codigo QR">
         <span class="qr-text">SCAN OR CLICK FOR FULL STORY</span>
       </div>
     </a>
